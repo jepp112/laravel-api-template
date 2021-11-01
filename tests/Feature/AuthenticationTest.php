@@ -25,7 +25,9 @@ it('will logout user', function () {
 
     $token = JWTAuth::fromUser($this->user);
 
-    $this->postJson('api/auth/logout?token=' . $token)
+    $this
+        ->withHeaders(['Authorization' => 'Bearer ' . $token])
+        ->postJson('api/auth/logout')
         ->assertStatus(200)
         ->assertExactJson(['message' => 'Successfully logged out']);
 });
@@ -34,7 +36,9 @@ it('will refresh token', function () {
 
     $token = JWTAuth::fromUser($this->user);
 
-    $this->post('api/auth/refresh?token=' . $token)
+    $this
+        ->withHeaders(['Authorization' => 'Bearer ' . $token])
+        ->post('api/auth/refresh')
         ->assertStatus(200)
         ->assertJsonStructure([
             'access_token',
