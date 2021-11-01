@@ -14,10 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-//    \App\Models\User::factory()->create([
-//        'name' => 'Rexhep',
-//        'email' => 'rkrasniqi93@gmail.com',
-//        'password' => bcrypt('secret')
-//    ]);
     return view('welcome');
 });
