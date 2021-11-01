@@ -11,10 +11,11 @@
 |
 */
 
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase;
 use Tests\CreatesApplication;
 
-uses(TestCase::class, CreatesApplication::class)->in('Feature');
+uses(TestCase::class, CreatesApplication::class, LazilyRefreshDatabase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
